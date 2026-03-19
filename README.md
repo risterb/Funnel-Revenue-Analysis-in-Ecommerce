@@ -64,6 +64,45 @@ Through sequencing analysis week over week, it is evident that the majority of l
         ROUND(AVG(TIMESTAMPDIFF(MINUTE,fc.cart_time, fp.purchase_time)),2) AS avg_cart_to_purchase,
         ROUND(AVG(TIMESTAMPDIFF(MINUTE,fv.view_time, fp.purchase_time)),2) AS avg_total_journey
 
+### 4. Organic sales drive the most revenue
+Looking closely at the revenue derived from each channel that the company implements, the organic sales avenue brings in the most revenue, but not the highest conversion. This channel is seemingly driven by volume, unlike the email source, which continues to outperform the others as the most valuable source per user. 
+
+<p align="center">
+<img width="600" height="513" alt="revenue_cvr_source" src="https://github.com/user-attachments/assets/33aa1779-df45-4e8c-a768-51b5ce212a5f" />
+</p>
+
+### 5. Top products also have the highest Average Order Values (AOV)
+To zoom in on the product performance, I considered the ratios among viewers, buyers and revenue in order to isolate how each product is represented in key funnel metrics
+
+        ROUND((cart_adds/NULLIF(product_viewers,0)),2) AS view_to_cart_rate,
+        ROUND((total_buyers/NULLIF(cart_adds,0)),2) AS cart_to_purchase_rate,
+        ROUND((total_revenue/NULLIF(total_buyers,0)),2) AS avg_order_value,
+        ROUND((total_revenue/NULLIF(product_viewers,0)),2) AS renevue_per_viewer
+
+This reveals that top-performing products such as references 205 and 404 also have the highest AOV. This indicates that the products are not only popular but also maintain strong pricing integrity, signaling that customers perceive high value for the products. On the other hand, the relatively narrow AOV suggests that pricing is consisten across the catalog but even small differences could be impacting total revenue at scale. 
+
+<p align="center">
+<img width="600" height="513" alt="revenue_aov_perproduct" src="https://github.com/user-attachments/assets/68ffa5cc-8ef5-447a-9539-a266ecce799c" />
+</p>
+
+## Recommendations
+
+### 1. Improve Top-of-Funnel Conversion
+Improvements to the product pages can enhance funnel performance. Through A/B testing some page layouts, the view-to-cart conversion can be improved.
+
+### 2. Reallocate marketing spend to more effective channels
+Email marketing is significantly more effective than the other traffic sources. By increasing investment on this channel, higher-intent customers can be funneled through. Conversely, social media campaigns can be improved by retargeting the audience. Depending on the products, different social media spaces can be more effective at reaching the right audience than others. Lastly, organic is a high-performing channel due to volume, but it needs investment to improve conversion rates, which can be achieved through landing page alignment. 
+
+### 3. Leverage top-performing products
+Products with the highest revenue and AOV need to be promoted more prominently. Using strategies such as feature placements, bundling strategies and upselling. 
+
+## Dataset & Tools
+- Source: layoffs.csv
+- Tools: GitHub, MySQL, PowerBI
+- Key variables in data source:
+
+event_id; user_id; event_type; event_date; product_id; amount; traffic_source
+
 
 
 <p align="center">
