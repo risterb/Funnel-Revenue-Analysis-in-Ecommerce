@@ -1,6 +1,6 @@
 <h1 align="center">Funnel and Revenue Analysis in Ecommerce</h1>
 
-## Where Shoppers Drop Off, and Why It Matters
+<p align="center"> ## Where Shoppers Drop Off, and Why It Matters </p>
 
 ## Summary
 The goal of this project is to analyze user behaviour across an ecommerce funnel and identify key drivers of user conversion and revenue in a 90-day period. The project focuses on the following:
